@@ -1,0 +1,38 @@
+@host = http://localhost:8000/posts
+@leonardoAuth = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxNiwiZXhwIjoxNjM4ODM5OTYzfQ.En4ykZMXXBFltqeoCQTbSh3RUhlh2InSUZeefZNM2DA
+
+###
+GET {{host}}
+Authorization: {{leonardoAuth}}
+
+###
+GET {{host}}/1
+Authorization: {{leonardoAuth}}
+
+###
+POST {{host}}/
+Content-Type: application/json
+Authorization: {{leonardoAuth}}
+
+
+{
+	"title": "Testing Auth Variable",
+	"content": "I am having some troubles with this xd"
+}
+
+###
+DELETE {{host}}/5
+Authorization: {{leonardoAuth}}
+
+###
+PUT {{host}}/6
+Content-Type: application/json
+
+{
+	"title": "changing the anoying text",
+	"content": "This is a decent content"
+}
+
+###
+GET {{host}}/sqlalchemy
+Authorization: {{leonardoAuth}}

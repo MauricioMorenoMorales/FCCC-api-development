@@ -1,0 +1,6 @@
+pydantic
+
+### Manejo de bases de datos
+psycogp2
+sqlAlchemy
+alembic alembic revisions and upgrades

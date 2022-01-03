@@ -1,0 +1,15 @@
+@host = http://localhost:8000
+
+@testingPassword = aosdfkmsdofg
+
+### Login
+POST {{host}}/login
+Content-Type: application/json
+
+{
+	"email": "leonardo@gmail.com",
+	"password": "password123"
+}
+
+# To login you need to use form-data in postman with parameters
+# email -> password
