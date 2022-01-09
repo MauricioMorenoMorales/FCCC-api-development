@@ -20,7 +20,7 @@ def get_posts(
 	limit: int = 4,
 	skip: int = 0,
 	search: Optional[str] = ""
-) -> None:
+):
 	# posts = db.\
 	# 	query(models.Post).\
 	# 	filter(models.Post.title.contains(search)).\
@@ -44,7 +44,7 @@ def create_posts(
 	post: schemas.PostCreate,
 	db: Session = Depends(get_db),
 	current_user: int = Depends(oauth2.get_current_user)
-) -> None:
+):
 	new_post = models.Post(
 		title=post.title,
 		content=post.content,
@@ -63,7 +63,7 @@ def get_post(
 	id: int,
 	db: Session = Depends(get_db),
 	current_user: int = Depends(oauth2.get_current_user)
-) -> None:
+):
 	# post = db.\
 	# 	query(models.Post).\
 	# 	filter(models.Post.id == id).\
@@ -89,7 +89,7 @@ def delete_post(
 	id: int,
 	db: Session = Depends(get_db),
 	current_user: int = Depends(oauth2.get_current_user)
-) -> None:
+):
 	post_query = db.query(models.Post).filter(models.Post.id == id)
 	post = post_query.first()
 	if post == None:
@@ -115,7 +115,7 @@ def update_post(
 	updated_post: schemas.PostUpdate,
 	db: Session = Depends(get_db),
 	current_user: int = Depends(oauth2.get_current_user)
-) -> None:
+):
 	post_query = db.query(models.Post).filter(models.Post.id == id)
 	post = post_query.first()
 	if post == None:
@@ -133,7 +133,7 @@ def update_post(
 	return post_query.first()
 
 # ? SQL Section
-# @app.get('/posts')
+# @app.get('/posts')-> None
 # def get_posts():
 # 	cursor.execute("SELECT * FROM posts")
 # 	posts = cursor.fetchall()
